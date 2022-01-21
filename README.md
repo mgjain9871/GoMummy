@@ -1,2 +1,0 @@
-# GoMummy
-Created Under OSDHack
