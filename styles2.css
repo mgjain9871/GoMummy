@@ -1,0 +1,114 @@
+h1{
+  text-align: center;
+
+}
+/* textarea {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+} */
+.start1,.start2,.start3,.start4{
+  margin: 2% 0;
+}
+.card-body,.full{
+  background-color: #D5D9E0;
+}
+.center{
+
+text-align: center;
+}
+h1{
+  font-family: 'Cabin', sans-serif;
+}
+.logo{
+  width: 70%;
+}
+.card{
+  background-color: #FBE5E5;
+}
+#button-3 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#button-3 a {
+  position: relative;
+  transition: all .45s ease-Out;
+}
+
+#circle {
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #BFC0C0;
+  position: absolute;
+  transition: all .5s ease-Out;
+  top: 20px;
+  left: 70px;
+}
+
+#button-3:hover #circle {
+  width: 200%;
+  height: 500%;
+  opacity: 1;
+  top: -70px;
+  left: -70px;
+}
+
+#button-3:hover a {
+  color: #2D3142;
+}
+
+
+/* Fifth Button */
+
+
+/* Sixth Button */
+
+
+
+/* Seventh Button */
+
+
+
+#dub-arrow {
+  width: 100%;
+  height: 100%;
+  background: #BFC0C0;
+  left: -200px;
+  position: absolute;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .35s ease-Out;
+  bottom: 0;
+}
+
+@media screen and (min-width:1000px) {
+  h1 {
+    font-size: 2.2em;
+  }
+}
+
+.button {
+  background-color: #FFF9F9;
+  display: inline-flex;
+  height: 40px;
+  width: 150px;
+  border: 2px solid #D9D7F1;
+  color: #BFC0C0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+margin-top: 3%;
+margin-bottom: 1.4%;
+}
