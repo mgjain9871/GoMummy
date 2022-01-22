@@ -16,8 +16,8 @@
     <link rel="shortcut icon" href="./images/log.png">
     <nav class="navbar navbar-expand-custom navbar-mainbg">
         <div class="logo">
-           <a href="./index.html"><img src="./images/log.png" alt="" height="70" width="110"></a>
-            <!-- <a class="navbar-brand navbar-logo logo-text" href="/goMUMMY/index.html">GoMummy</a> -->
+           <a href="./index"><img src="./images/log.png" alt="" height="70" width="110"></a>
+            <!-- <a class="navbar-brand navbar-logo logo-text" href="/goMUMMY/index">GoMummy</a> -->
           </div>
             <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars text-white"></i>
@@ -27,20 +27,21 @@
                     <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
 
                     <li class="nav-item ">
-                        <a class="nav-link" href="./index.html"><i class="far fa-address-book"></i>Home</a>
+                        <a class="nav-link" href="./index"><i class="far fa-address-book"></i>Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./find.html"><i class="far fa-clone"></i>Explore Business</a>
+                        <a class="nav-link" href="./find"><i class="far fa-clone"></i>Explore Business</a>
                     </li>
                     <li class="nav-item active">
                       <a class="nav-link" href="javascript:void(0);"><i class="fas fa-calendar"></i>Add Business</a>
                   </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./about-us.html"><i class="far fa-chart-bar"></i>About Us</a>
+                        <a class="nav-link" href="./aboutus"><i class="far fa-chart-bar"></i>About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./contactus.html"><i class="far fa-copy"></i>Contact Us</a>
+                        <a class="nav-link" href="./contactus"><i class="far fa-copy"></i>Contact Us</a>
                     </li>
+                    
                 </ul>
             </div>
         </nav>
@@ -75,7 +76,7 @@
                                 <div class="row register-form">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Full Name *" value="" />
+                                            <input type="text" class="form-control" id='name' placeholder="Full Name *" value="" />
                                         </div>
                                         <!-- <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Last Name *" value="" />
@@ -88,23 +89,20 @@
                                         </div> -->
                                         <!-- <div class="form-group">
                                             <div class="maxl">
-                                                <label class="radio inline"> 
+                                                <label class="radio inline">
                                                     <input type="radio" name="gender" value="male" checked>
-                                                    <span> Male </span> 
+                                                    <span> Male </span>
                                                 </label>
-                                                <label class="radio inline"> 
+                                                <label class="radio inline">
                                                     <input type="radio" name="gender" value="female">
-                                                    <span>Female </span> 
+                                                    <span>Female </span>
                                                 </label>
                                             </div>
                                         </div> -->
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
+                                            <input type="email" class="form-control" id='email' placeholder="Your Email *" value="" />
                                         </div>
                                         <!-- <div class="form-group">
                                             <select class="form-control">
@@ -115,10 +113,16 @@
                                             </select>
                                         </div> -->
                                         <div class="form-group">
+                                            <input type="tel" minlength="10" maxlength="10" id='phone' name="postPhone" class="form-control" placeholder="888 888 8888"    title="Ten digits code" required/>
+                                          </div>
+                                        <div class="form-group">
                                             <!-- <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" /> -->
-                                            <textarea class="form-control" name="" id="" cols="20" rows="5" placeholder="Your Business Description *" style="resize: none;"></textarea>
+                                            <textarea class="form-control" name="" cols="20" rows="5" id="desc" placeholder="Your Business Description *" style="resize: none;"></textarea>
                                         </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                        <div class="form-group">
+                                            <input type="file" id="image"name="image" value="" required>
+                                        </div>
+                                        <input type="button" class="btnRegister" id='register'  value="Register"/>
                                     </div>
                                 </div>
                             </div>
@@ -166,9 +170,59 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-            
+
         </body>
         <script type="text/javascript" src="index.js"></script>
+        <script type='module'>
+                      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
+                      import { getFirestore ,collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js';
+                      import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-storage.js";
+                      const firebaseConfig = {
+                        apiKey: "AIzaSyAW21-NN4X9GuM3E8ASwTv0nmHHDybzQNg",
+                        authDomain: "gomummy-b2301.firebaseapp.com",
+                        projectId: "gomummy-b2301",
+                        storageBucket: "gomummy-b2301.appspot.com",
+                        messagingSenderId: "241727400177",
+                        appId: "1:241727400177:web:920bea3b8d937014c0a150",
+                      };
+                      const app = initializeApp(firebaseConfig);
+                      const db = getFirestore();
+
+                      const name = document.getElementById('name');
+                      const email = document.getElementById('email');
+                      const phone = document.getElementById('phone');
+                      const desc = document.getElementById('desc');
+                      const btn = document.getElementById('register');
+                      const img = document.getElementById('image');
+                      let file;
+                      let fileUrl;
+
+                      img.addEventListener('change', (e) => {
+                          console.log(e.target.files);
+                          file = e.target.files[0];
+                      })
+                      const storage = getStorage();
+
+
+                      btn.addEventListener('click', () => {
+                          const storageRef = ref(storage,`images/${file.name}`);
+                            console.log(file);
+                            uploadBytes(storageRef, file).then((snapshot) => {
+                            console.log('Uploaded a blob or file!');
+                            getDownloadURL(ref(storage, `images/${file.name}`)).then(url => {
+                                const docRef = addDoc(collection(db, "businesses"), {
+                                    name: name.value,
+                                    email: email.value,
+                                    phone: phone.value,
+                                    desc: desc.value,
+                                    photoLink: url
+                                  }).then(doc => {
+                                    alert('Document successfully added.');
+                                  })
+                              })
+                          });
+                      })
+
+                </script>
         </html>

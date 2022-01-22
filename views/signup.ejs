@@ -17,10 +17,11 @@
 <!-- google fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- <script src="firebase.js"></script> -->
 <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Cabin&family=Mochiy+Pop+P+One&family=Pacifico&display=swap" rel="stylesheet">
 <nav class="navbar navbar-expand-custom navbar-mainbg">
     <div class="logo">
-          <a href="./index.html"><img src="./images/log.png" alt="" height="70" width="110"></a>
+          <a href="./index"><img src="./images/log.png" alt="" height="70" width="110"></a>
         <!-- <a class="navbar-brand navbar-logo" href="#">Navbar</a> -->
     </div>
         <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,16 +32,16 @@
                 <div class="hori-selector"><div class="left"></div><div class=""></div></div>
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="./index.html"><i class="far fa-address-book"></i>Home</a>
+                    <a class="nav-link" href="./index"><i class="far fa-address-book"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./find.html" id="sec"><i class="far fa-clone"></i>Explore Business</a>
+                    <a class="nav-link" href="./find" id="sec"><i class="far fa-clone"></i>Explore Business</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./add.html"><i class="fas fa-calendar"></i>Add Business</a>
+                    <a class="nav-link" href="./add"><i class="fas fa-calendar"></i>Add Business</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./about-us.html"><i class="far fa-chart-bar"></i>About Us</a>
+                    <a class="nav-link" href="./aboutus"><i class="far fa-chart-bar"></i>About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy" ></i>Contact Us</a>
@@ -66,7 +67,7 @@
                         <div class="d-flex flex-row align-items-center mb-3">
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                            <input type="text" id="form3Example1c" class="form-control" />
+                            <input type="text" id="name" class="form-control" />
                             <label class="form-label" for="form3Example1c">Your Name</label>
                         </div>
                         </div>
@@ -74,7 +75,7 @@
                         <div class="d-flex flex-row align-items-center mb-3">
                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                            <input type="email" id="form3Example3c" class="form-control" />
+                            <input type="email" id="email" class="form-control" />
                             <label class="form-label" for="form3Example3c">Your Email</label>
                         </div>
                         </div>
@@ -82,7 +83,7 @@
                         <div class="d-flex flex-row align-items-center mb-3">
                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4c" class="form-control" />
+                            <input type="password" id="password" class="form-control" />
                             <label class="form-label" for="form3Example4c">Password</label>
                         </div>
                         </div>
@@ -100,7 +101,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="button" class="btn btn-primary btn-lg" href="/index.html">Register</a>
+                        <button type="button" class="btn btn-primary btn-lg" id='register'>Register</a>
                         </div>
 
                     </form>
@@ -118,5 +119,49 @@
         </div>
         </div>
     </section>
+    <script defer type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js'
+        import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged,signOut,updateProfile } from 'https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js'
+        const firebaseConfig = {
+          apiKey: "AIzaSyAW21-NN4X9GuM3E8ASwTv0nmHHDybzQNg",
+          authDomain: "gomummy-b2301.firebaseapp.com",
+          projectId: "gomummy-b2301",
+          storageBucket: "gomummy-b2301.appspot.com",
+          messagingSenderId: "241727400177",
+          appId: "1:241727400177:web:920bea3b8d937014c0a150",
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const btn = document.getElementById('register');
+
+        btn.addEventListener('click', () => {
+            console.log(email.value);
+            console.log(password.value);
+            createUserWithEmailAndPassword(auth,email.value,password.value).then(userCred => {
+                const user = userCred.user;
+                updateProfile(user,{
+                    displayName: name.value
+                });
+                console.log(user);
+            }).catch(err => {
+                console.log(err);
+            })
+        })
+
+        onAuthStateChanged(auth, (user) => {
+            if(user) {
+                // if user is signed in
+                window.location.href = "./index";
+                // console.log(user);
+                // signOut(auth);
+            }
+            else console.log('user not found')
+        });
+
+    </script>
+
 </body>
 </html>
