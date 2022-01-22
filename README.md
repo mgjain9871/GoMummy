@@ -10,8 +10,9 @@ GoMummy is the WomenCentric Website working to develop and uphold standards and 
 
 ## 📌 Sneak Peek of Main Page
 
+<br />
 
-# Theme
+## 📌 Theme
 According to us the biggest cliché that exist, is the way Women Empowerement is being dealt in our society.
 <br />
 
