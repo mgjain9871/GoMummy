@@ -126,7 +126,7 @@ Good Luck for your journey
 
 
 
-© 2022 Mitul Jain and contributors\
+© 2022 Mitul Jain and contributors
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
