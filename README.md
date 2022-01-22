@@ -12,10 +12,11 @@ GoMummy is the WomenCentric Website working to develop and uphold standards and 
 
 
 # Theme
-
+According to us the biggest cliché that exist, is the way Women Empowerement is being dealt in our society.
+<br />
 
 ### Killing The Cliche:- 
-
+Women are challenging stereotypes each day in innovation, careers and more. Stereotypes have held women back for far too long. In today's era women are no longer confined in their homes. They also have potential,skills and passion to make an impact. Today, not only men but women are capable enough to support their families financially contrary to the belief that they can only perform household chores.
 
 <br />
 
