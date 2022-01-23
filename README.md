@@ -1,8 +1,21 @@
 <h1 align="center">Go Mummy </h1>
 
-GoMummy is the WomenCentric Website working to develop and uphold standards and create an environment in which every woman can stand up and claim their space and live up to her full potential.
+GoMummy is the WomenCentric Website working to develop and uphold standards and create an environment in which every woman can stand up and claim their space and live up to her 
+full potential.
+
+<br />
 
 ## 📌 Sneak Peek of Main Page
+
+![image](https://github.com/mgjain9871/GoMummy/blob/main/public/images/1.png)
+
+![image](https://github.com/mgjain9871/GoMummy/blob/main/public/images/2.png)
+
+![image](https://github.com/mgjain9871/GoMummy/blob/main/public/images/3.png)
+
+![image](https://github.com/mgjain9871/GoMummy/blob/main/public/images/4.png)
+
+![image](https://github.com/mgjain9871/GoMummy/blob/main/public/images/5.png)
 
 <br />
 
@@ -21,7 +34,6 @@ Women are challenging stereotypes each day in innovation, careers and more. Ster
 ![CSS](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white)
 ![JS](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 <img alt="Bootstrap" src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white"/>
-![React](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge)
 
 <br />
 <h1 align=center> OUR TEAM✨ </h1>
