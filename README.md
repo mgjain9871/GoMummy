@@ -5,7 +5,7 @@ full potential.
 
 <br />
 
-## 📌 Sneak Peek of Main Page
+## 📌 Sneak Peek of Website
 
 ![image](https://github.com/mgjain9871/GoMummy/blob/main/public/images/1.png)
 
