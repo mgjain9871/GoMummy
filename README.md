@@ -2,12 +2,6 @@
 
 GoMummy is the WomenCentric Website working to develop and uphold standards and create an environment in which every woman can stand up and claim their space and live up to her full potential.
 
-<br />
-<h2> 
-📌<a href="https://mgjain9871.github.io/GoMummy/" target="_blank">Visit our website 🚀</a>
-</h2>
-<br />
-
 ## 📌 Sneak Peek of Main Page
 
 <br />
